@@ -1,13 +1,4 @@
 import math
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 
 class Complex:
@@ -15,16 +6,20 @@ class Complex:
         self.__re = re
         self.__im = im
 
-    def get_re(self):
+    @property
+    def re(self):
         return self.__re
 
-    def get_im(self):
+    @property
+    def im(self):
         return self.__im
 
-    def set_re(self, re):
+    @re.setter
+    def re(self, re):
         self.__re = re
 
-    def set_im(self, im):
+    @im.setter
+    def im(self, im):
         self.__im = im
 
     def sum(self, rhs_complex):
@@ -52,12 +47,12 @@ class Complex:
 
 if __name__ == '__main__':
     complex_number = Complex(3, -5)
-    real_part = complex_number.get_re()
-    imaginary_part = complex_number.get_im()
+    real_part = complex_number.re
+    imaginary_part = complex_number.im
     print(f"Real part: {real_part}      Imaginary: {imaginary_part}")
     print("Change the real part to -13 and imaginary to 336:")
-    complex_number.set_re(-13)
-    complex_number.set_im(336)
+    complex_number.re = -13
+    complex_number.im = 336
     complex_number.print_complex()
 
     print("\ntesting sum:")
@@ -77,7 +72,6 @@ if __name__ == '__main__':
     print("result:")
     dif_res = first_dif.dif(second_dif)
     dif_res.print_complex()
-    print_hi('PyCharm')
 
     print("\ntesting divsion:")
     first_div = Complex(2, 3)
@@ -99,6 +93,6 @@ if __name__ == '__main__':
 
     print("\ntesting module of complex number:")
     complex_number = Complex(3, -33)
+    complex_number.print_complex()
     module_of_complex_number = complex_number.module()
     print("result:" + str(module_of_complex_number))
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
